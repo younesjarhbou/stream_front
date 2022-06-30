@@ -122,9 +122,7 @@ const CategoryDialog = (props) => {
         return setError({ ...errors, image: "Please select an Image!" });
       }
     } else {
-      const index = category.find(
-        (category) => category.name.toLowerCase() === name.toLowerCase()
-      );
+      const index = category.find((category) => category.name.toLowerCase() === name.toLowerCase());
       if (index !== undefined) {
         if (index._id === mongoId) {
         } else {
@@ -141,7 +139,7 @@ const CategoryDialog = (props) => {
     const formData = new FormData();
     formData.append("icon", imageData);
     formData.append("name", name);
-
+    console.log(imageData)
     if (mongoId) {
       props.editCategory(formData, mongoId);
     } else {
@@ -235,8 +233,9 @@ const CategoryDialog = (props) => {
                     <Fragment>
                       <img
                         src={imagePath}
+                        alt="img"
                         class="mt-3 rounded float-left mb-2"
-                        height="100px"
+                        height="auto"
                         width="100px"
                       />
                       <div

@@ -137,13 +137,7 @@ const LoginPage = (props) => {
         .post("/admin/get/admin", data_)
         .then(async (res) => {
           let admin = res.data.data;
-          if (admin.flag === true) {
-            if (admin.key === null && admin.package === null) {
-              setHasAdmin(true);
-            } else {
-              setHasAdmin(false);
-            }
-          }
+          setHasAdmin(false);
         })
         .catch((error) => {
           debugger;
